@@ -1,0 +1,76 @@
+<%- include("header") -%>
+
+<div class="overlay">
+
+    <!-- WHole body container -->
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+
+        <!-- log in box -->
+        <div class="h-75 w-75 d-flex shadow-lg" id="box">
+
+          <!-- left side login of the box -->
+          <div class="p-5 w-100 align-center" id="box1">
+
+            <!-- heading of lg in  -->
+            <h1 class="text-center mb-3" style="font-family: Julee;">LOG IN</h1>
+            
+            <!-- form for log in -->
+            <form action="/action_page.php" class="needs-validated">
+
+              <!-- for username -->
+              <div class="mb-3 mt-3">
+                <label for="uname" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+
+              <!-- for password  -->
+              <div class="mb-5">
+                <label for="pwd" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+
+              <!-- occupation selection radio button  -->
+              <div class="d-flex mb-5 justify-content-around">
+                <div class="form-check me-2">
+                  <input type="radio" class="form-check-input" id="radio1" name="option" value="option1">Employer 
+                  <label class="form-check-label" for="radio1"></label>
+                </div>
+                <div class="form-check text-white">
+                  <input type="radio" class="form-check-input" id="radio2" name="option" value="option2">Tasker
+                  <label class="form-check-label" for="radio2"></label>
+                </div>
+            </div>
+              
+              <!-- Remember me check checkbox button  -->
+              <div class="d-flex justify-content-between mt-4 mb-2">
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+                  <label class="form-check-label" for="myCheck">Remember me<label>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Check this checkbox to continue.</div>
+                </div>
+
+                <!-- forgot password link  -->
+                <div>
+                  <a href="#" class="">Forget Password?</a>
+                </div>
+            </div>
+
+              <!-- submit button  -->
+              <div class="d-grid rounded-5">
+                <button type="submit" class="btn btn-block border border-dark fw-bold" style="background-color: #EEEEEE;">LOGIN</button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>

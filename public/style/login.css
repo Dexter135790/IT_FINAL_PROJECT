@@ -1,0 +1,20 @@
+body {
+    background-color: #E4E9FD;
+    background-image: -webkit-linear-gradient(65deg, #393E46 50%, #EEEEEE 50%);
+    min-height: 1000px;
+    font-family: 'helvetica neue';
+}
+
+#box{
+    max-width: 700px;
+    max-height: 550px;
+    background-image: -webkit-linear-gradient(180deg, #393E46 50%, #EEEEEE 50%);
+    margin: 50px auto;
+    /* background: #393E46; */
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#box1{
+    border-radius: 5px;
+}

@@ -1,0 +1,17 @@
+body {
+    background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=800');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#box{
+    opacity: 0.9;
+    height: 400px; 
+    width: 600px;
+    max-width: 1000px;
+    max-height: 550px;
+    background-image: -webkit-linear-gradient(236deg, #393E46 50%, #EEEEEE 50%);
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}

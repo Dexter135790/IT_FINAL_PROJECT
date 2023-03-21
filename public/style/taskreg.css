@@ -1,0 +1,17 @@
+body {
+    background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=800');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mod-head{
+    color: white; 
+}
+
+#bd {
+    opacity: 0.9;
+    background-color: #E4E9FD;
+    background-image: -webkit-linear-gradient(260deg, #393E46 50%, #EEEEEE 50%);
+    min-height: 1000px;
+    font-family: 'helvetica neue';
+}

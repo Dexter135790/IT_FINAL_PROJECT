@@ -1,0 +1,142 @@
+<%- include("headernav") -%>
+
+<!-- sign up form whole page  -->
+<div class="container border mt-1 p-5" id="bd">
+
+    <!-- sign up form block  -->
+    <div class="container w-50">
+
+    <h1 class="text-center p-5" style="font-family: Julee;">SIGN UP FOR COMPANY</h1>
+
+    <!-- form starting -->
+    <form action="/action_page.php" class="needs-validated">
+
+        <!-- for username -->
+        <div class="mb-3 mt-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Company Name</span>
+                <input type="text" class="form-control" placeholder="Company Name">
+              </div>
+              
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <!-- for email  -->
+        <div class="mb-3 mt-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Email</span>
+                <input type="text" class="form-control" placeholder="Email">
+              </div>
+              
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <!-- FOR CONTACT NUMBER  -->
+        <div class="mb-4">
+         <div class="input-group mb-3">
+            <span class="input-group-text">Contact number</span>
+             <input type="text" class="form-control" placeholder="Contact Number">
+          </div>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+
+         <!-- Industry Type selection menu  -->
+
+        <div class="mb-4">
+            <div class="input-group mb-3">
+               <span class="input-group-text">Industry</span>
+                <span>
+                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                        <option selected>Select the industry of your comapany</option>
+                        <option value="1">Ceramics/Sanitaryware</option>
+                        <option value="2">Government/Defence</option>
+                        <option value="3">Electrical/Switchgears</option>
+                        <option value="4">FacilityManagement</option>
+                        <option value="5">Fertilizers/Pesticides</option>
+                        <option value="6">FoodProcessing</option>
+                        <option value="7">Glass</option>
+                        <option value="8">HeatVantilation/AirConditioning</option>
+                        <option value="9">KPO/Reserch/Analytics</option>
+                        <option value="10">Mining</option>
+                        <option value="11">Publishing</option>
+                        <option value="12">Steel</option>
+                        <option value="13">Strategy/ManagementConsultingFirms</option>
+                        <option value="14">Tyres</option>
+                        <option value="15">WaterTreatment/WasteManagement</option>
+                        <option value="16">Wellness/Fitness/Sports</option>
+                        <option value="17">Telecom/ISP</option>
+                        <option value="18">Other</option>
+                        <option value="19">Animation/Gaming</option>
+                        <option value="20">Banking/FinancialServices/Broking</option>
+                        <option value="21">Brewery/Distillery</option>
+                        <option value="22">Textiles/Garments/Fashion/Accessories</option>
+                        <option value="23">Accounting/Finance</option>
+                        <option value="24">Advertising/PR/MR/EventManagement</option>
+                        <option value="25">Agriculture/Dairy</option>
+                        <option value="26">HOtels/Restaurants/Airlines/Travel</option>
+                        <option value="27">Architecture/InteriorDesign</option>
+                        <option value="28">Automobile/AutoAnciliary/AutoComponents</option>
+                        <option value="29">Pharma/Biotechnology/ClinicalResearch</option>
+                        <option value="30">Construction/Engineering/Cement/Metals</option>
+                        <option value="31">Chemicals/PetroChemical/Plastics/Rubber</option>
+                    </select>
+                </span>
+             </div>
+            </div>
+
+        <!-- Company Address  -->
+        
+        <div class="mb-3 mt-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Company Address</span>
+                <textarea type="text" class="form-control" placeholder="Company Address" rows="5" cols="5"></textarea>
+              </div>
+        </div>
+
+    <!-- for password  -->
+    <div class="mb-4">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Password</span>
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <!-- Re-enter password  -->
+    <div class="mb-4">
+      <div class="input-group mb-3">
+          <span class="input-group-text">Re-enter Password</span>
+          <input type="password" class="form-control" placeholder="Re-enter Password">
+        </div>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+                    
+
+        <!-- Checkbox for terms and conditions  -->
+        <div class="form-check mb-3 mt-3">
+          <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+          <label class="form-check-label text-white" for="myCheck">Accept the terms and conditions.<label>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Check this checkbox to continue.</div>
+        </div>
+
+        <!-- Submit button  -->
+        <div class="d-grid rounded-5">
+          <button type="submit" class="btn btn-dark btn-block" id="submit">Submit</button>
+        </div>
+
+      </form>
+    </div>
+
+    </div>
+
+
+
+<%- include("footer") -%>

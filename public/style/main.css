@@ -1,0 +1,29 @@
+body{
+    background-color: #222831;
+    color: white;
+}
+
+.nav-link{
+    color: black;
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+#working-text{
+    line-height: 30px;
+    font-size: large;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+#working-heading{
+    font-weight: bolder;
+}
+
+#employer-benefit-text{
+    line-height: 35px;
+}
+
+#taskers-text{
+    line-height: 35px;
+}

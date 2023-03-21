@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"  crossorigin="anonymous"></script>
+    <link href="https://fonts.google.com/specimen/Julee?preview.text=LOG%20IN&preview.  text_type=custom" rel="stylesheet">
+    <link href=<%= style %> rel="stylesheet">
+</head>
+<body>
+
+<!-- navigation bar -->
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm fixed-top" style="background-color: #222831">
+        <div class="container-fluid">
+
+            <!-- brand logo  -->
+            <a href="/" class="navbar-brand">
+                <img src="images/logo.png" alt="" height="50px" class="rounded">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link rounded text-white" href="/jobsearch" style="background-color: #393E46">JOB SEARCH</a>
+                  </li>
+                  
+                </ul>
+                <% if(session==0){  %>
+                <form class="d-flex">
+                    <!-- Button to open Modal  -->
+                    <button class="btn rounded text-white" type="button" data-bs-toggle="modal" data-bs-target="#myModal" style="background-color: #393E46">CREATE ACCOUNT</button>
+
+                    <button class="btn ms-3 rounded text-white" type="button" style="background-color: #393E46;"><a href="/login" class="text-decoration-none text-white">LOGIN</a> </button>
+
+                  </form>
+
+                <% } else if (session == 1) { %>
+                  <div class="bg-white p-2 rounded">
+                    WELCOME TASKER
+                  </div>
+                <% } else {%>
+                
+                  <div class="bg-white p-2 rounded">
+                    WELCOME TASKER
+                  </div>
+                <% } %>
+
+        </div>
+     </nav>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body rounded shadow-lg bg-dark" style="height: 200px;">
+          <h4 class="text-center text-white" id="mod-head">CHOOSE THE SIGN UP CRITERIA </h4>
+          <div class="d-flex mt-2">
+              <button class="btn mt-5 m-auto rounded text-white p-3" type="button" style="background-color: #393E46;">
+                  <a href="/taskerreg" class="text-decoration-none text-white">TASKERS</a> 
+              </button>  
+              <button class="btn mt-5 m-auto rounded text-white p-3" type="button" style="background-color: #393E46;">
+                  <a href="/compReg" class="text-decoration-none text-white">COMPANY</a> 
+              </button>      
+
+          </div>     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      
