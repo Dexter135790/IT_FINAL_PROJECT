@@ -9,13 +9,13 @@
     <h1 class="text-center p-5" style="font-family: Julee;">SIGN UP FOR COMPANY</h1>
 
     <!-- form starting -->
-    <form action="/action_page.php" class="needs-validated">
+    <form action="/compReg" class="needs-validated" method="post" onsubmit="return validateForm()">
 
         <!-- for username -->
         <div class="mb-3 mt-2">
             <div class="input-group mb-3">
                 <span class="input-group-text">Company Name</span>
-                <input type="text" class="form-control" placeholder="Company Name">
+                <input type="text" class="form-control" placeholder="Company Name" name="name" required>
               </div>
               
           <div class="valid-feedback">Valid.</div>
@@ -26,7 +26,7 @@
         <div class="mb-3 mt-2">
             <div class="input-group mb-3">
                 <span class="input-group-text">Email</span>
-                <input type="text" class="form-control" placeholder="Email">
+                <input type="text" class="form-control" placeholder="Email" name="email" required>
               </div>
               
           <div class="valid-feedback">Valid.</div>
@@ -37,7 +37,7 @@
         <div class="mb-4">
          <div class="input-group mb-3">
             <span class="input-group-text">Contact number</span>
-             <input type="text" class="form-control" placeholder="Contact Number">
+             <input type="text" class="form-control" placeholder="Contact Number" name="contact" required>
           </div>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
@@ -50,39 +50,39 @@
             <div class="input-group mb-3">
                <span class="input-group-text">Industry</span>
                 <span>
-                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                    <select class="form-select form-select" aria-label=".form-select-sm example" name="industry" required>
                         <option selected>Select the industry of your comapany</option>
-                        <option value="1">Ceramics/Sanitaryware</option>
-                        <option value="2">Government/Defence</option>
-                        <option value="3">Electrical/Switchgears</option>
-                        <option value="4">FacilityManagement</option>
-                        <option value="5">Fertilizers/Pesticides</option>
-                        <option value="6">FoodProcessing</option>
-                        <option value="7">Glass</option>
-                        <option value="8">HeatVantilation/AirConditioning</option>
-                        <option value="9">KPO/Reserch/Analytics</option>
-                        <option value="10">Mining</option>
-                        <option value="11">Publishing</option>
-                        <option value="12">Steel</option>
-                        <option value="13">Strategy/ManagementConsultingFirms</option>
-                        <option value="14">Tyres</option>
-                        <option value="15">WaterTreatment/WasteManagement</option>
-                        <option value="16">Wellness/Fitness/Sports</option>
-                        <option value="17">Telecom/ISP</option>
-                        <option value="18">Other</option>
-                        <option value="19">Animation/Gaming</option>
-                        <option value="20">Banking/FinancialServices/Broking</option>
-                        <option value="21">Brewery/Distillery</option>
-                        <option value="22">Textiles/Garments/Fashion/Accessories</option>
-                        <option value="23">Accounting/Finance</option>
-                        <option value="24">Advertising/PR/MR/EventManagement</option>
-                        <option value="25">Agriculture/Dairy</option>
-                        <option value="26">HOtels/Restaurants/Airlines/Travel</option>
-                        <option value="27">Architecture/InteriorDesign</option>
-                        <option value="28">Automobile/AutoAnciliary/AutoComponents</option>
-                        <option value="29">Pharma/Biotechnology/ClinicalResearch</option>
-                        <option value="30">Construction/Engineering/Cement/Metals</option>
-                        <option value="31">Chemicals/PetroChemical/Plastics/Rubber</option>
+                        <option value="Ceramics/Sanitaryware">Ceramics/Sanitaryware</option>
+                        <option value="Government/Defence">Government/Defence</option>
+                        <option value="Electrical/Switchgears">Electrical/Switchgears</option>
+                        <option value="FacilityManagement">FacilityManagement</option>
+                        <option value="Fertilizers/Pesticides">Fertilizers/Pesticides</option>
+                        <option value="FoodProcessing">FoodProcessing</option>
+                        <option value="Glass">Glass</option>
+                        <option value="HeatVantilation/AirConditioning">HeatVantilation/AirConditioning</option>
+                        <option value="KPO/Reserch/Analytics">KPO/Reserch/Analytics</option>
+                        <option value="Mining">Mining</option>
+                        <option value="Publishing">Publishing</option>
+                        <option value="Steel">Steel</option>
+                        <option value="Strategy/ManagementConsultingFirms">Strategy/ManagementConsultingFirms</option>
+                        <option value="Tyres">Tyres</option>
+                        <option value="WaterTreatment/WasteManagement">WaterTreatment/WasteManagement</option>
+                        <option value="Wellness/Fitness/Sports">Wellness/Fitness/Sports</option>
+                        <option value="Telecom/ISP">Telecom/ISP</option>
+                        <option value="Other">Other</option>
+                        <option value="Animation/Gaming">Animation/Gaming</option>
+                        <option value="Banking/FinancialServices/Broking">Banking/FinancialServices/Broking</option>
+                        <option value="Brewery/Distillery">Brewery/Distillery</option>
+                        <option value="Textiles/Garments/Fashion/Accessories">Textiles/Garments/Fashion/Accessories</option>
+                        <option value="Accounting/Finance">Accounting/Finance</option>
+                        <option value="Advertising/PR/MR/EventManagement">Advertising/PR/MR/EventManagement</option>
+                        <option value="Agriculture/Dairy">Agriculture/Dairy</option>
+                        <option value="Hotels/Restaurants/Airlines/Travel">Hotels/Restaurants/Airlines/Travel</option>
+                        <option value="Architecture/InteriorDesign">Architecture/InteriorDesign</option>
+                        <option value="Automobile/AutoAnciliary/AutoComponents">Automobile/AutoAnciliary/AutoComponents</option>
+                        <option value="Pharma/Biotechnology/ClinicalResearch">Pharma/Biotechnology/ClinicalResearch</option>
+                        <option value="Construction/Engineering/Cement/Metals">Construction/Engineering/Cement/Metals</option>
+                        <option value="Chemicals/PetroChemical/Plastics/Rubber">Chemicals/PetroChemical/Plastics/Rubber</option>
                     </select>
                 </span>
              </div>
@@ -93,7 +93,7 @@
         <div class="mb-3 mt-2">
             <div class="input-group mb-3">
                 <span class="input-group-text">Company Address</span>
-                <textarea type="text" class="form-control" placeholder="Company Address" rows="5" cols="5"></textarea>
+                <textarea type="text" class="form-control" placeholder="Company Address" rows="5" cols="5" name="address" required></textarea>
               </div>
         </div>
 
@@ -101,7 +101,7 @@
     <div class="mb-4">
         <div class="input-group mb-3">
             <span class="input-group-text">Password</span>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" name="pswd" id="pswd" required>
           </div>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
@@ -111,7 +111,7 @@
     <div class="mb-4">
       <div class="input-group mb-3">
           <span class="input-group-text">Re-enter Password</span>
-          <input type="password" class="form-control" placeholder="Re-enter Password">
+          <input type="password" class="form-control" placeholder="Re-enter Password" name="re_pswd" id="re_pswd" required>
         </div>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
@@ -136,6 +136,24 @@
     </div>
 
     </div>
+
+    <script>
+      function validateForm() {
+        var password = document.getElementById("pswd").value;
+        var confirmPassword = document.getElementById("re_pswd").value;
+        if (password != confirmPassword) {
+          alert("Passwords do not match.");
+          return false;
+        }
+        return true;
+      }
+    
+      document.querySelector("form").addEventListener("submit", function(event) {
+        if (!validateForm()) {
+          event.preventDefault();
+        }
+      });
+    </script>
 
 
 

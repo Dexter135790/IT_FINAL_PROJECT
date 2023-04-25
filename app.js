@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose');
 
 const app = express()
 
@@ -9,7 +10,39 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static("public"))
 
+//Connceting the mongo database
+mongoose.connect('mongodb+srv://admin:admin@cluster0.ge9bpaw.mongodb.net/jobSearch', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB', err));
+
 var session=0;
+
+
+// Taksers schema for their details
+const taskersSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    contactNumber: Number,
+    city: String,
+    password: String,
+    resume: Buffer
+});
+
+const companiesSchema = new mongoose.Schema({
+    companyName: String,
+    email: String,
+    contactNumber: Number,
+    industry: String,
+    companyAddress: String,
+    password: String
+});
+
+
+const Tasker = mongoose.model("Tasker", taskersSchema);
+
+const Company = mongoose.model("Company", companiesSchema);
+
 
 app.get("/", (req, res)=>{
     res.render("main", {
@@ -25,6 +58,43 @@ app.get("/login", (req, res)=>{
     });
 });
 
+app.post("/login", (req, res)=>{
+    console.log(req.body.option);
+    if(req.body.option == "Tasker"){
+        session=1;
+        const username = req.body.uname;
+        const password = req.body.pswd;
+
+        Tasker.findOne({email: username})
+        .then((foundUser)=>{
+            if(foundUser.password === password){
+                res.render("jobsearch", {
+                    style: "style/jobsearch.css",
+                    session: session
+                });
+            }
+        })
+        .catch((err)=>console.log(err))
+    }else{
+            session=2;
+            const username = req.body.uname;
+            const password = req.body.pswd;
+    
+            Company.findOne({email: username})
+            .then((foundUser)=>{
+                if(foundUser.password === password){
+                    res.render("jobsearch", {
+                        style: "style/jobsearch.css",
+                        session: session
+                    });
+                }
+            })
+            .catch((err)=>console.log(err))
+    
+}
+
+});
+
 app.get("/compReg", (req, res)=>{
     res.render("companyreg", {
         style: "style/compreg.css",
@@ -32,12 +102,47 @@ app.get("/compReg", (req, res)=>{
     });
 });
 
+app.post("/compReg", (req, res)=>{
+
+    const company = new Company({
+        companyName: req.body.name,
+        email: req.body.email,
+        contactNumber: req.body.contact,
+        industry: req.body.industry,
+        companyAddress: req.body.address,
+        password: req.body.pswd
+    });
+
+    company.save();
+
+    res.redirect("/login");
+})
+
 app.get("/taskerReg", (req, res)=>{
     res.render("taskerreg", {
         style: "style/taskreg.css",
         session: session
     });
 });
+
+app.post("/taskerReg", (req, res)=>{
+
+        console.log("Storing the data");
+        const tasker = new Tasker({
+            firstName: req.body.fname,
+            lastName: req.body.lname,
+            email: req.body.email,
+            contactNumber: req.body.contactNumber,
+            city: req.body.city,
+            password: req.body.pswd,
+            resume: req.body.resume
+        });
+
+        tasker.save();
+
+        res.redirect("/login");
+    
+})
 
 app.get("/privacy", (req, res)=>{
     res.render("privacy", {
