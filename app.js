@@ -16,6 +16,7 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.ge9bpaw.mongodb.net/jobSear
   .catch(err => console.error('Error connecting to MongoDB', err));
 
 var session=0;
+var email = "";
 
 
 // Taksers schema for their details
@@ -26,7 +27,9 @@ const taskersSchema = new mongoose.Schema({
     contactNumber: Number,
     city: String,
     password: String,
-    resume: Buffer
+    resume: Buffer,
+    skills: String,
+    description: String
 });
 
 const companiesSchema = new mongoose.Schema({
@@ -68,6 +71,7 @@ app.post("/login", (req, res)=>{
         Tasker.findOne({email: username})
         .then((foundUser)=>{
             if(foundUser.password === password){
+                email = foundUser.email;
                 res.render("jobsearch", {
                     style: "style/jobsearch.css",
                     session: session
@@ -83,6 +87,7 @@ app.post("/login", (req, res)=>{
             Company.findOne({email: username})
             .then((foundUser)=>{
                 if(foundUser.password === password){
+                    email = foundUser.email;
                     res.render("jobsearch", {
                         style: "style/jobsearch.css",
                         session: session
@@ -90,7 +95,6 @@ app.post("/login", (req, res)=>{
                 }
             })
             .catch((err)=>console.log(err))
-    
 }
 
 });
@@ -135,7 +139,9 @@ app.post("/taskerReg", (req, res)=>{
             contactNumber: req.body.contactNumber,
             city: req.body.city,
             password: req.body.pswd,
-            resume: req.body.resume
+            resume: req.body.resume,
+            skills: req.body.skill,
+            description: req.body.description
         });
 
         tasker.save();
@@ -164,11 +170,46 @@ app.get("/jobsearch", (req, res)=>{
 
 app.get("/taskersdash", (req, res)=>{
     let k=1;
-    res.render("taskerdash", {
-        style: "style/taskerdash.css",
-        session: k
-    });
+    Tasker.findOne({email: email})
+        .then((foundUser)=>{
+            res.render("taskerdash", {
+                style: "style/taskerdash.css",
+                session: k,
+                fname: foundUser.firstName,
+                lname: foundUser.lastName,
+                email: foundUser.email,
+                number: foundUser.contactNumber,
+                city: foundUser.city,
+                skills: foundUser.skills,
+                description: foundUser.description
+            });
+        })
+        .catch((err)=>console.log(err))
+    
 });
+
+app.get("/companydash", (req, res)=>{
+    Company.findOne({email: email})
+        .then((foundUser)=>{
+            res.render("companydash", {
+                style: "style/taskerdash.css",
+                session: 2,
+                name: foundUser.companyName,
+                email: foundUser.email,
+                number: foundUser.contactNumber,
+                industry: foundUser.industry,
+                address: foundUser.companyAddress,
+            });
+        })
+        .catch((err)=>console.log(err))
+})
+
+app.get("/jobPostForm", (req, res)=>{
+    res.render("jobPostForm", {
+        style: "style/taskreg.css",
+        session: session
+    });
+})
 
 app.listen(3000, ()=>{
     console.log('Server started on port 3000');

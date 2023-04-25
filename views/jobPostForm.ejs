@@ -1,0 +1,84 @@
+<%- include("headernav") -%>
+
+<!-- sign up form whole page  -->
+<div class="vh-100 container border mt-5 p-5" id="bd">
+
+    <!-- sign up form block  -->
+    <div class="container w-50">
+
+    <h1 class="text-center text-white p-5" style="font-family: Julee;">JOB POST</h1>
+
+    <!-- form starting -->
+    <form action="/taskerReg" class="needs-validated" method="post" onsubmit="return validateForm()">
+        
+        <!-- Job Detail  -->
+        <div class="mb-3 mt-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Job</span>
+                <input type="text" class="form-control" placeholder="Job" name="Job" required>
+              </div>
+        </div>
+
+        <!-- Job Description  -->
+        <div class="mb-3 mt-2">
+          <div class="input-group mb-3">
+              <span class="input-group-text">Job Description</span>
+              <textarea type="text" class="form-control" placeholder="Job description" rows="5" cols="5" name="description"></textarea>
+            </div>
+        </div>
+
+        <!-- Job pay  -->
+        <div class="mb-3 mt-2">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Salary</span>
+                <textarea type="text" class="form-control" placeholder="Salary" rows="5" cols="5" name="job_pay"></textarea>
+              </div>
+        </div>
+
+      <!-- Qualification  -->
+      <div class="mb-3 mt-2">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Job qualifications</span>
+            <textarea type="text" class="form-control" placeholder="Qualifications" rows="5" cols="5" name="qualifications"></textarea>
+          </div>
+      </div>
+
+        
+
+        <!-- Submit button  -->
+        <div class="d-grid rounded-5">
+          <button type="submit" class="btn btn-dark btn-block">Submit</button>
+        </div>
+
+
+      </form>
+    </div>
+
+    </div>
+
+
+    <!-- Validating password and re-enter password entries -->
+    <script>
+      function validateForm() {
+        var password = document.getElementById("pswd").value;
+        var confirmPassword = document.getElementById("re_pswd").value;
+        if (password != confirmPassword) {
+          alert("Passwords do not match.");
+          return false;
+        }
+        return true;
+      }
+    
+      document.querySelector("form").addEventListener("submit", function(event) {
+        if (!validateForm()) {
+          event.preventDefault();
+        }
+      });
+    </script>
+    
+
+
+    
+    
+  
+<%- include("footer") -%>
