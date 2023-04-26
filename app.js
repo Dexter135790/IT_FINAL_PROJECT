@@ -17,6 +17,7 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.ge9bpaw.mongodb.net/jobSear
 
 var session=0;
 var email = "";
+var unsuccessful=0;
 
 
 // Taksers schema for their details
@@ -67,7 +68,8 @@ app.get("/", (req, res)=>{
 app.get("/login", (req, res)=>{
     res.render("login", {
         style: "style/login.css",
-        session: session
+        session: session,
+        unsuccessful: unsuccessful
     });
 });
 
@@ -80,16 +82,24 @@ app.post("/login", (req, res)=>{
 
         Tasker.findOne({email: username})
         .then((foundUser)=>{
+            
             if(foundUser.password === password){
+                unsuccessful=0;
                 email = foundUser.email;
-                res.render("jobsearch", {
-                    style: "style/jobsearch.css",
-                    session: session
-                });
+                res.redirect("/taskersdash");
             }
         })
-        .catch((err)=>console.log(err))
+        .catch((err)=>{
+            console.log(err);
+            unsuccessful=1;
+            res.render("login", {
+                style: "style/login.css",
+                session: session,
+                unsuccessful: unsuccessful
+            });
+        });
     }else{
+        
             session=2;
             const username = req.body.uname;
             const password = req.body.pswd;
@@ -97,14 +107,20 @@ app.post("/login", (req, res)=>{
             Company.findOne({email: username})
             .then((foundUser)=>{
                 if(foundUser.password === password){
+                    unsuccessful=0;
                     email = foundUser.email;
-                    res.render("jobsearch", {
-                        style: "style/jobsearch.css",
-                        session: session
-                    });
+                    res.redirect("/companydash");
                 }
             })
-            .catch((err)=>console.log(err))
+            .catch((err)=>{
+                console.log(err);
+            unsuccessful=1;
+            res.render("login", {
+                style: "style/login.css",
+                session: session,
+                unsuccessful: unsuccessful
+            });
+        });
 }
 
 });
