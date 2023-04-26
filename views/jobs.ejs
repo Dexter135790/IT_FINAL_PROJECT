@@ -1,0 +1,25 @@
+<%- include("headernav") -%>
+<div class="container border mt-5 p-5 text-center" id="bd" style="background-color: #eeeeeea0;">
+  <% data.forEach((doc) => { %>
+    <!-- <div class="block">
+        <h4 class="text-center"><%= doc.job %></h4>
+    </div> -->
+    <div class="card text-center" id="block">
+        <div class="card-header">
+          <%= doc.job %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= doc.qualifications %></h5>
+          <p class="card-text" style="height: 150px;"><%= doc.description %></p>
+          <div class="card-footer text-muted">
+            Rs. <%= doc.salary %> /month
+          </div>
+        </div>
+        
+        <a href="<%= doc.link %>" class="btn btn-primary">Apply</a>
+      </div>
+  <% }); %>
+
+  
+</div>
+  <%- include("footer") -%>

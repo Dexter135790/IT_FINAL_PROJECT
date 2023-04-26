@@ -41,10 +41,20 @@ const companiesSchema = new mongoose.Schema({
     password: String
 });
 
+const jobsSchema = new mongoose.Schema({
+    job: String,
+    description: String,
+    salary: String,
+    qualifications: String,
+    link: String
+})
+
 
 const Tasker = mongoose.model("Tasker", taskersSchema);
 
 const Company = mongoose.model("Company", companiesSchema);
+
+const Job = mongoose.model("Job", jobsSchema);
 
 
 app.get("/", (req, res)=>{
@@ -205,12 +215,43 @@ app.get("/companydash", (req, res)=>{
 })
 
 app.get("/jobPostForm", (req, res)=>{
+    console.log(session);
     res.render("jobPostForm", {
         style: "style/taskreg.css",
         session: session
     });
 })
 
-app.listen(3000, ()=>{
+app.post("/jobPostForm", (req, res)=>{
+    const job = new Job({
+        job: req.body.Job,
+        description: req.body.description,
+        salary: req.body.job_pay,
+        qualifications: req.body.qualifications,
+        link: req.body.link
+    });
+
+    job.save();
+
+    res.redirect("/jobs");
+
+});
+
+app.get("/jobs", (req, res)=>{
+
+    // Job.find({}).toArray((err, data) => {
+    // if (err) throw err;
+
+    // res.render('jobs', { data: data });
+    // });
+
+    Job.find({})
+    .then((foundUser)=>{
+        res.render("jobs", {data: foundUser, style: "style/jobs.css", session: session});
+    })
+    .catch((err)=>console.log(err));
+});
+
+app.listen(3001, ()=>{
     console.log('Server started on port 3000');
 });

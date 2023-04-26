@@ -1,0 +1,18 @@
+.bd {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+#block {
+    width: 400px;
+    height: 400px;
+    background-color: #ccc;
+    margin: 5px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  body{
+    background-color: #393E46;
+}

@@ -27,7 +27,9 @@
               <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link rounded text-white" href="/jobsearch" style="background-color: #393E46">JOB SEARCH</a>
+                    <% if (session == 1 || session == 2){ %>
+                    <a class="nav-link rounded text-white" href="/jobs" style="background-color: #393E46">JOBS</a>
+                    <% } %>
                   </li>
                   
                 </ul>
