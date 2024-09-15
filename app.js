@@ -8,10 +8,10 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
-
+require("dotenv").config();
 //Connceting the mongo database
 mongoose
-  .connect("mongodb+srv://a:a@cluster0.ge9bpaw.mongodb.net/jobSearch", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
